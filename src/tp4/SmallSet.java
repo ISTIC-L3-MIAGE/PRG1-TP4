@@ -1,23 +1,26 @@
+package tp4;
 
 public class SmallSet {
-	private boolean[] tab = new boolean[256];
+	
+	private int SET_SIZE = 256;
+	private boolean[] tab = new boolean[SET_SIZE];
 	
 	public SmallSet() {
-		for (int i =0; i<=255; ++i) {
+		for (int i = 0; i < SET_SIZE; ++i) {
 			tab[i] = false;
 		}
-		
 	}
 	
 	public SmallSet (boolean[] t) {
-		for (int i =0; i<=255;++i) {
+		for (int i = 0; i < SET_SIZE; ++i) {
 			tab[i] = t[i];
 		}
 	}
-	//retourne le nombre d'éléments dans le tableau
+	
+	// Retourne le nombre d'éléments dans le tableau
 	public int size() {
 		int count = 0;
-		for (int i = 0; i<tab.length;++i ) {
+		for (int i = 0; i < SET_SIZE; ++i) {
 			if (tab[i]) {
 				count++;
 			}
@@ -25,7 +28,8 @@ public class SmallSet {
 		return count;
 		
 	}
-	//verifie si x appartient à l'ensemble
+	
+	// Vérifie si x appartient à l'ensemble
 	
 	/**
 	 * 
@@ -35,18 +39,16 @@ public class SmallSet {
 	 */
 	
 	public boolean contains (int x) {
-		
 		return tab[x];
-		
 	}
+	
 	//verifie si le tableau est vide
 	public boolean isEmpty() {
-		for (int i = 0; i<=255; ++i) {
+		for (int i = 0; i < SET_SIZE; ++i) {
 			if (tab[i]) {
 				return false;
 			}
 		}
-		
 		return true;
 	}
 	/**
@@ -55,13 +57,7 @@ public class SmallSet {
 	 * @pre 0<=x<=255
 	 */
 	public void add(int x) {
-		if (contains(x)) {
-			return;
-		}
-		else {
-			tab[x] = true;
-		}
-		
+		tab[x] = true;	
 	}
 	/**
 	 * 
@@ -69,12 +65,7 @@ public class SmallSet {
 	 * @pre 0<=x<=255
 	 */
 	public void remove(int x) {
-		if(!contains(x)) {
-			return ;
-		} else {
-			tab[x] = false;
-		}
-		
+		tab[x] = false;	
 	}
 	/**
 	 * 
@@ -84,10 +75,9 @@ public class SmallSet {
 	 * @pre 0<=begin<=end<=255
 	 */
 	public void addInterval (int deb, int fin) {
-		for (int i = deb; i<fin;++i) {
+		for (int i = deb; i < fin;++i) {
 			tab[i] = true;
 		}
-		
 	}
 	/**
 	 * 
@@ -97,22 +87,20 @@ public class SmallSet {
 	 * @pre 0<=begin<=end<=255
 	 */
 	public void removeInterval (int deb, int fin) {
-		for (int i = deb; i<fin;++i) {
+		for (int i = deb; i < fin; ++i) {
 			tab[i] = false;
 		}
-		
 	}
 	/**
 	 * réalise l'opération this union set2
 	 * @param set2
 	 */
 	public void union(SmallSet set2) {
-		for (int i = 0; i<=255;++i) {
+		for (int i = 0; i <= 255; ++i) {
 			if(set2.tab[i]) {
 				this.tab[i] = true;
 			}
 		}
-		
 	}
 	
 	/**
