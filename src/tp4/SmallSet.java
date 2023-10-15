@@ -96,7 +96,7 @@ public class SmallSet {
 	 * @param set2
 	 */
 	public void union(SmallSet set2) {
-		for (int i = 0; i <= 255; ++i) {
+		for (int i = 0; i < SET_SIZE; ++i) {
 			if(set2.tab[i]) {
 				this.tab[i] = true;
 			}
@@ -109,7 +109,7 @@ public class SmallSet {
 	 */
 	//les elements communs aux deux ensembles
 	public void intersection (SmallSet set2) {
-		for (int i = 0; i<=255;++i) {
+		for (int i = 0; i < SET_SIZE; ++i) {
 			if(!set2.tab[i]) {
 				this.tab[i] = false;
 			}
@@ -121,7 +121,7 @@ public class SmallSet {
 	
 	// l'ensemble des éléments de this qui ne sont pas dans set2
 	public void difference(SmallSet set2) {
-		for (int i=0; i<=255; ++i) {
+		for (int i = 0; i < SET_SIZE; ++i) {
 			if (set2.tab[i]) {
 				this.tab[i] = false;
 			}
@@ -131,7 +131,7 @@ public class SmallSet {
 	//les elements qui sont presents dans l'un et pas dans l'autre
 	
 	public void symmetricDifference(SmallSet set2) {
-		for (int i = 0; i<=255; ++i) {
+		for (int i = 0; i < SET_SIZE; ++i) {
 			if (set2.tab[i]) {
 				this.tab[i] = !this.tab[i];
 			}
@@ -140,24 +140,23 @@ public class SmallSet {
 	}
 	//inversion de la valeur de chaque élément dans le tableau
 	public void complement() {
-		for (int i = 0; i<=255; ++i) {
+		for (int i = 0; i < SET_SIZE; ++i) {
 			this.tab[i] = !this.tab[i];
 		}
 		
 	}
 	//vider le tableau
 	public void clear() {
-		for (int i = 0; i<=255;++i) {
+		for (int i = 0; i < SET_SIZE; ++i) {
 			this.tab[i] = false;
 		}
-
 	}
 	/**
 	 * @param set2 second ensemble
 	 * @return true si this est inclus dans set2, false sinon
 	 */
 	public boolean isIncludeIn(SmallSet set2) {
-		for (int i = 0; i<=255; ++i) {
+		for (int i = 0; i < SET_SIZE; ++i) {
 			if (this.tab[i] && !set2.tab[i]) {
 				return false;
 			}
