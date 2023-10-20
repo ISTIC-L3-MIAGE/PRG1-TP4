@@ -1,9 +1,10 @@
-package test;
+package fr.istic.prg1.test;
+
+import java.util.List;
 
 import org.junit.runner.JUnitCore;
 import org.junit.runner.Result;
 import org.junit.runner.notification.Failure;
-import java.util.List;
 
 public class AlexTester {
 
