@@ -149,7 +149,7 @@ public class SmallSet {
 	 */
 	public void symmetricDifference(SmallSet set2) {
 		for (int i = 0; i < SET_SIZE; ++i) {
-			this.tab[i] = !(set2.tab[i] && this.tab[i]);
+			this.tab[i] = set2.tab[i] ^ this.tab[i]);
 		}
 	}
 
